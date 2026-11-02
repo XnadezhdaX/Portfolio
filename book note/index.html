@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Collection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <p class="eyebrow">Personal Reading Diary</p>
+      <h1>My Book Diary</h1>
+      <p class="subtitle">Fill the book</p>
+    </header>
+
+    <div class="book" id="book">
+
+      <aside class="left">
+        <div class="cover" id="cover">
+          <div class="bookmark"></div>
+          <p class="cover-title">Fill me</p>
+          <p class="cover-subtitle">A reading diary</p>
+          <p class="cover-hint">Click to open</p>
+        </div>
+
+        <div class="entries" id="entries" hidden>
+          <p class="list-title">My entries</p>
+          <ul class="list" id="list"></ul>
+        </div>
+      </aside>
+
+      <main class="right">
+        <div class="page" id="page">
+          <form id="bookForm" class="form">
+            <div class="field">
+              <label for="title">Book title</label>
+              <input type="text" id="title" placeholder="Enter the title" required>
+            </div>
+            <div class="field">
+              <label for="author">Author</label>
+              <input type="text" id="author" placeholder="Enter the author" required>
+            </div>
+            <div class="field">
+              <label for="genre">Genre</label>
+              <input type="text" id="genre" placeholder="Enter the genre">
+            </div>
+            <div class="field">
+              <label for="liked">what do you think of the book?</label>
+              <select id="liked" class="select-gray">
+                <option value="" disabled selected hidden>Choose an answer</option>
+                <option value="bad">bad</option>
+                <option value="average">average</option>
+                <option value="amazing">amazing</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="description">Description</label>
+              <textarea id="description" rows="3" placeholder="What is the book about?"></textarea>
+            </div>
+            <div class="field full">
+              <label for="quote">Favorite quote</label>
+              <textarea id="quote" rows="2" placeholder="Enter a quote you liked"></textarea>
+            </div>
+            <div class="field full">
+              <label for="thoughts">Thoughts about the main characters</label>
+              <textarea id="thoughts" rows="3" placeholder="What do you think about them?"></textarea>
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn">Save this page</button>
+              <button type="button" class="ghost-btn" id="cancelBtn" hidden>Cancel</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <p class="empty" id="empty">No entries yet. Fill the first page</p>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

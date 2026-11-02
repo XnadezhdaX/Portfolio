@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: radial-gradient(circle at 50% 30%, #111329 0%, #05050c 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 80px 20px;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(#ffffff 1px, transparent 0);
+    background-size: 50px 50px;
+    opacity: 0.15;
+    z-index: -1;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ffffff, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #b8b8d0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+  }
+  
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .project-card {
+    display: block;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 242, 254, 0.5);
+    box-shadow: 0 20px 45px rgba(0, 242, 254, 0.15);
+  }
+  
+  .project-card h3 {
+    font-size: 16px;
+    color: #00f2fe;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .project-card p {
+    font-size: 13px;
+    color: #d0d0e0;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  
+  .project-card .tech {
+    font-size: 11px;
+    color: #b8b8d0;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 12px;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 12px;
+    color: #6a6a80;
+    letter-spacing: 1px;
+  }
+  
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; letter-spacing: 2px; }
+    body { padding: 50px 16px; }
+    .subtitle { margin-bottom: 30px; }
+  }

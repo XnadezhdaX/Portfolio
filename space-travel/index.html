@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space travel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+<!-- Шапка -->
+<header>
+<div class="logo">Travel</div>
+<nav>
+<ul>
+<li><a href="#">Missions</a></li>
+<li><a href="#">Rockets</a></li>
+<li><a href="#">Travel</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- Основной контент -->
+<section class="hero">
+
+<!-- Падающая карточка слева -->
+<div class="glass-card card-1">
+<h3>VOYAGE STATS</h3>
+<p>Launch Success Rate: 98%</p>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+</div>
+
+<!-- Падающая карточка справа -->
+<div class="glass-card card-2">
+<h3>GALACTIC DESTINATIONS</h3>
+<p>Mars Colony: Active<br>Asteroid Belt: Mining</p>
+</div>
+
+<!-- Ракета (используем SVG иконку) -->
+<div class="rocket-container">
+<svg class="rocket" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4.5 16.5c-1.5 1.26-2 3.5-2 3.5s2.24-.5 3.5-2c3.12-3.62 4.14-9.04 4.14-9.04s-5.42 1.02-9.04 4.14z"></path>
+<path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+<path d="M9 12H4s.55-3.03 2-4c1.62-1.08 3-2 3-2"></path>
+<path d="M12 15v5s3.03-.55 4-2c1.08-1.62 2-3 2-3v-5"></path>
+</svg> 
+</div>
+
+<h1 class="hero-title">Explore a new world for yourself</h1>
+<a href="#" class="btn-primary" id="bookBtn">Take Off</a>
+
+<!-- Земля внизу -->
+<div class="earth-container">
+    <img src="Earth.png" alt="Earth" class="earth-img">
+  </div>
+</section>
+
+</body>
+</html>

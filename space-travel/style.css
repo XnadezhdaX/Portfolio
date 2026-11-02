@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    
+body {
+    background: radial-gradient(circle at 50% 30%, #111329 0%, #05050c 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+    
+/* Звездный фон (имитация) */
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(255, 255, 255) 1px, transparent 0);
+    background-size: 50px 50px;
+    opacity: 0.15;
+    z-index: -1;
+}
+    
+/* Шапка сайта */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+    
+.logo {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00f2fe;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+}
+    
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+    
+nav ul li a {
+    color: #b8b8d0;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+    
+nav ul li a:hover {
+    color: #00f2fe;
+}
+    
+/* Главный экран */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+    
+.hero-title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+    margin-bottom: 75px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff, #00f2fe);
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+    
+.btn-primary {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #0072ff, #00f2fe);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+}
+    
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
+}
+    
+/* Ракета в центре */
+.rocket-container {
+    position: relative;
+    margin: 20px 0;
+    animation: floatRocket 4s ease-in-out infinite;
+}
+    
+.rocket {
+    width: 90px;
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
+}
+    
+/* Земля  */
+.earth-container {
+    position: absolute;
+    bottom: -260px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    max-width: 1800px;
+    z-index: 0;
+    pointer-events: none;
+    animation: earthFloat 10s ease-in-out infinite;
+}
+  
+.earth-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 -10px 40px rgba(0, 242, 254, 0.25);
+    filter: brightness(0.9) contrast(1.05);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+  
+}
+  
+@keyframes earthFloat {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0); /*rotate(0deg)*/
+    }
+    50% {
+      transform: translateX(-50%) translateY(-12px); /*rotate(1deg)*/
+    }
+}
+  
+@media (max-width: 768px) {
+    .earth-container {
+        width: 190%;
+        bottom: -180px;
+    }
+}
+
+
+/* Стеклянные карточки с анимацией падения */
+.glass-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    text-align: left;
+}
+    
+.glass-card h3 {
+    font-size: 14px;
+    color: #00f2fe;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+    
+.glass-card p {
+    font-size: 13px;
+    color: #d0d0e0;
+}
+
+/* Прогресс внутри карточки */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+    
+.progress-fill {
+    width: 98%;
+    height: 100%;
+    background: linear-gradient(90deg, #0072ff, #00f2fe);
+    border-radius: 3px;
+}
+
+
+/* Позиционирование и анимации падения карточек */
+.card-1 {
+    top: 18%;
+    left: 10%;
+    animation: dropFromLeft 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+}
+    
+.card-2 {
+    top: 25%;
+    right: 10%;
+    animation: dropFromTop 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s forwards;
+    opacity: 0;
+}
+    
+/* Анимации */
+@keyframes dropFromLeft {
+    0% {
+    transform: translateX(-150px) translateY(-50px) rotate(-10deg);
+    opacity: 0;
+    }
+
+    100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    }
+}
+
+@keyframes dropFromTop {
+    0% {
+        transform: translateY(-150px) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+    
+@keyframes floatRocket {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+    
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+    
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .logo {
+      font-size: 36px;
+    }
+  
+    .hero-title {
+      font-size: 2.4rem;
+    }
+  
+    .glass-card {
+      width: 240px;
+      padding: 16px;
+    }
+}
+  
+/* Телефоны (до 758px) */
+@media (max-width: 768px) {
+    header {
+      padding: 18px 5%;
+    }
+  
+    .logo {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+  
+    nav ul {
+      gap: 14px;
+    }
+  
+    nav ul li a {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+  
+    .hero {
+      height: auto;
+      min-height: 100vh;
+      padding: 120px 20px 260px; 
+      justify-content: flex-start;
+    }
+  
+    .hero-title {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+  
+    .rocket {
+      width: 70px;
+    }
+  
+    /* Карточки одна под другой */
+    .glass-card {
+      position: static;
+      width: 100%;
+      max-width: 340px;
+      margin: 12px auto;
+      opacity: 1;              
+      animation: none;
+    }
+  
+    .card-1,
+    .card-2 {
+      top: auto;
+      left: auto;
+      right: auto;
+      opacity: 1;
+      animation: none;
+    }
+  
+    .btn-primary {
+      margin-top: 10px;
+      padding: 12px 28px;
+    }
+  
+    /* Земля ниже и шире */
+    .earth-container {
+      width: 200%;
+      bottom: -140px;
+    }
+}
+  
+/* Телефоны (до 480) */
+@media (max-width: 480px) {
+    .logo {
+      font-size: 22px;
+    }
+  
+    nav ul {
+      gap: 10px;
+    }
+  
+    nav ul li a {
+      font-size: 10px;
+    }
+  
+    .hero-title {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+  
+    .glass-card {
+      max-width: 300px;
+      padding: 14px;
+    }
+  
+    .glass-card h3 {
+      font-size: 12px;
+    }
+  
+    .glass-card p {
+      font-size: 12px;
+    }
+  
+    .rocket {
+      width: 60px;
+    }
+  
+    .earth-container {
+      width: 240%;
+      bottom: -110px;
+    }
+}
